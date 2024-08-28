@@ -1,0 +1,181 @@
+body, html, p {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.15;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+    
+.text-line-1 {
+    margin-bottom: 12px;
+}
+
+.text-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: white;
+    overflow-y: scroll;
+    margin: 3px;
+}
+
+.row-1 {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 2px 0; /* Aggiungi un po' di padding per separare le righe */
+}
+
+.row::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: black;
+}
+
+.row:hover::before {
+    width: 100%;
+}
+
+.column-left{
+    width: 20%;
+    text-align: left;
+    
+}
+
+.column-left-2{
+    width: 50%;
+    text-align: left;
+}
+
+.column-right{
+    width: 30%;
+    text-align: right;
+}
+
+.image-section {
+    flex: 1;
+    overflow-y: scroll;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+.image-section img {
+    width: 100%;
+    display: flex;
+}
+
+/* Nascondi la sezione "about" per default */
+.about-section {
+    display: none;
+    padding: 0 5px;
+}
+
+/* Classe per nascondere le colonne */
+.hidden {
+    display: none;
+}
+
+a {
+    color: black; /* Colore del testo del link */
+    text-decoration: none; /* Rimuove la sottolineatura predefinita */
+}
+
+a:hover {
+    text-decoration: underline; /* Aggiunge la sottolineatura quando il link è in hover */
+}
+
+.image-section video {
+    width: 100%;
+    display: flex;
+}
+
+
+
+
+    @media (max-width: 768px) {
+        .container {
+            display: flex;
+            flex-direction: column; /* Organizza gli elementi in colonna */
+            height: 100%;
+        }
+
+        header.row-1, .row {
+            display: flex;
+            flex-direction: row;
+        }
+    
+        .column-left {
+            width: 40%;
+            padding-right: 20px;
+        }
+
+        .column-left-2 {
+            width: 100%;
+            padding-right: 70px;
+        }
+
+        .column-right {
+            width: 60%;
+        }
+
+        .text-line {
+            line-break: auto;
+        }
+
+        .text-section {
+            flex-grow: 1; /* Fai crescere il testo per occupare tutto lo spazio disponibile */
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            overflow-y: scroll;
+            margin: 0px;
+        }
+
+        .image-section {
+            align-self: flex-end; /* Allinea le immagini in fondo */
+            display: flex;
+            flex-wrap: wrap; /* Se hai più immagini, si adatteranno come necessario */
+        }
+    
+        img, video {
+            width: 100%;
+            height: auto;
+        }
+
+        html {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        p {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.15;
+            margin: 2px;
+        }
+
+        .row {
+            padding: 0; /* Aggiungi un po' di padding per separare le righe */
+        }
+    }
