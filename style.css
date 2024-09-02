@@ -86,7 +86,6 @@ body, html, p {
 /* Nascondi la sezione "about" per default */
 .about-section {
     display: none;
-    padding: 0 5px;
 }
 
 /* Classe per nascondere le colonne */
