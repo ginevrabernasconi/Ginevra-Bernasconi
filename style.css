@@ -124,16 +124,15 @@ a:hover {
     
         .column-left {
             width: 50%;
-            padding-right: 20px;
         }
 
         .column-left-2 {
-            width: 100%;
-            padding-right: 50px;
+            width: 90%;
+            padding-right: 20px;
         }
 
         .column-right {
-            width: 60%;
+            width: 50%;
         }
 
         .text-line {
