@@ -176,4 +176,16 @@ a:hover {
         .row {
             padding: 0; /* Aggiungi un po' di padding per separare le righe */
         }
+
+        /* Nascondi la sezione "about" per default */
+.about-section {
+}
+
+/* Classe per nascondere le colonne */
+.hidden {
+    display: none;
+}
+        
     }
+
+    
