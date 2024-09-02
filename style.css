@@ -143,10 +143,9 @@ a:hover {
             flex-grow: 1; /* Fai crescere il testo per occupare tutto lo spazio disponibile */
             display: flex;
             flex-direction: column;
-            background-color: black;
+            background-color: white;
             overflow-y: scroll;
             margin: 0px;
-            color: white;
         }
 
         .image-section {
