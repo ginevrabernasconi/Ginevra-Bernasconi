@@ -140,7 +140,7 @@ a:hover {
         }
 
         .text-section {
-            flex-grow: 1; /* Fai crescere il testo per occupare tutto lo spazio disponibile */
+            flex-grow: 0.7; /* Fai crescere il testo per occupare tutto lo spazio disponibile */
             display: flex;
             flex-direction: column;
             background-color: white;
