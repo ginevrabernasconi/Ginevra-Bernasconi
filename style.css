@@ -179,6 +179,7 @@ a:hover {
 
         /* Nascondi la sezione "about" per default */
 .about-section {
+    display: none;
 }
 
 /* Classe per nascondere le colonne */
