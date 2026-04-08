@@ -1,72 +1,58 @@
-/* RESET TOTALE MARGINI */
-body, html {
-    margin: 0; padding: 0; height: 100%; width: 100%;
-    overflow: hidden; font-family: Arial, sans-serif;
-    font-size: 15px; line-height: 1.15;
+body, html, p {
+    margin: 0; padding: 0; height: 100%; overflow: hidden;
+    font-family: Arial, sans-serif; font-size: 15px; line-height: 1.15;
 }
 
-.container {
-    display: flex; flex-direction: column;
-    height: 100vh; width: 100vw;
-}
+.container { display: flex; flex-direction: column; height: 100vh; width: 100vw; }
 
-/* HEADER E RIGHE: STESSA STRUTTURA */
-.row-1, .row {
-    display: flex; width: 100%;
-    padding: 2px 0; position: relative;
-}
+.main-header { padding: 3px; background: white; z-index: 1001; }
 
-/* Allineamento colonne identico ovunque */
-.column-left { width: 25%; padding-left: 5px; }
-.column-left-2 { width: 45%; }
-.column-right { width: 30%; text-align: right; padding-right: 5px; }
-
-.main-header {
-    background: white; z-index: 1100;
-    border-bottom: 0.5px solid #000; /* Opzionale, per separare l'header */
-}
-
-.content-wrapper { display: flex; flex: 1; overflow: hidden; position: relative; }
+.content-wrapper { display: flex; flex: 1; overflow: hidden; }
 
 .text-section {
     flex: 1; display: flex; flex-direction: column;
-    background-color: white; overflow-y: scroll;
+    background-color: white; overflow-y: scroll; margin: 3px;
     border-right: 1px solid #f0f0f0;
 }
 
 .image-section { flex: 1; overflow-y: scroll; background-color: white; }
 img, video { width: 100%; height: auto; display: block; }
 
-.about-button { cursor: pointer; text-decoration: underline; margin-left: 10px; }
+.row-1, .row { display: flex; justify-content: space-between; position: relative; padding: 2px 0; }
+.column-left { width: 20%; }
+.column-left-2 { width: 50%; }
+.column-right { width: 30%; text-align: right; }
 
-/* EFFETTO HOVER RIGA */
+.about-button { cursor: pointer; text-decoration: underline; }
+
 .row::before {
     content: ""; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background-color: black; transition: 0.3s;
 }
 .row:hover::before { width: 100%; }
 
-/* MOBILE */
+.hidden { display: none !important; }
+
+/* --- REGOLE SPECIFICHE PER MOBILE --- */
 @media (max-width: 768px) {
-    .column-left { width: 20%; } /* Anno più stretto */
-    .column-left-2 { width: 55%; } /* Titolo allineato a BERNASCONI */
-    .column-right { width: 25%; }
+    .content-wrapper { position: relative; }
 
-    /* Nascondiamo la descrizione progetto nelle righe su mobile per spazio */
-    .row .column-right { display: none; }
-    
-    /* Ma mostriamo i pulsanti nell'header */
-    .main-header .column-right { 
-        display: flex; justify-content: flex-end; gap: 10px; 
-    }
-
+    /* La text-section diventa una tendina che copre le immagini */
     .text-section {
         position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-        z-index: 1000; display: none; padding: 0; /* Rimosso padding per allineamento */
+        z-index: 1000; display: none; margin: 0; padding: 10px;
     }
+
+    /* Mostriamo il secondo pulsante solo su mobile */
+    #btn-projects { display: block !important; }
 
     .image-section { width: 100%; flex: none; }
     
-    #btn-projects { display: inline-block !important; }
+    /* Adattiamo le tue colonne esistenti */
+    .column-left { width: 25%; }
+    .column-left-2 { width: 75%; }
+    .column-right { display: none; } 
+    .row-1 .column-right { display: block; } /* Header tiene i bottoni */
 }
 
+/* Classe attivata dal JS per mostrare la tendina */
 .mobile-open { display: block !important; }
