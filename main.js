@@ -4,54 +4,49 @@ document.addEventListener("DOMContentLoaded", function() {
     const textSection = document.getElementById('text-section');
     const aboutSection = document.getElementById('about-section');
     const projectsList = document.getElementById('projects-list');
-    const imageSection = document.getElementById('image-section');
 
-    function toggleNav(type) {
+    function toggleMenu(mode) {
         const isMobile = window.innerWidth <= 768;
 
         if (isMobile) {
-            // Logica MOBILE (Tendina)
-            const isVisible = textSection.classList.contains('mobile-open');
-            const currentContent = (type === 'about') ? aboutSection : projectsList;
-            const otherContent = (type === 'about') ? projectsList : aboutSection;
+            const alreadyOpen = textSection.classList.contains('is-open');
+            const targetContent = (mode === 'about') ? aboutSection : projectsList;
+            const otherContent = (mode === 'about') ? projectsList : aboutSection;
 
-            if (isVisible && currentContent.style.display === 'block') {
-                textSection.classList.remove('mobile-open');
+            // Se la tendina è aperta e clicco lo stesso tasto, chiudo tutto
+            if (alreadyOpen && targetContent.style.display === 'block') {
+                textSection.classList.remove('is-open');
             } else {
-                textSection.classList.add('mobile-open');
-                currentContent.style.display = 'block';
+                // Apro e mostro il contenuto giusto
+                textSection.classList.add('is-open');
+                targetContent.style.display = 'block';
                 otherContent.style.display = 'none';
             }
         } else {
-            // Logica DESKTOP (Tua originale)
-            if (type === 'about') {
-                const isHidden = projectsList.classList.contains('hidden');
-                if (isHidden) {
-                    projectsList.classList.remove('hidden');
-                    aboutSection.style.display = 'none';
-                } else {
-                    projectsList.classList.add('hidden');
-                    aboutSection.style.display = 'block';
-                }
+            // Logica Desktop
+            if (mode === 'about') {
+                const isBioVisible = aboutSection.style.display === 'block';
+                aboutSection.style.display = isBioVisible ? 'none' : 'block';
+                projectsList.style.display = isBioVisible ? 'block' : 'none';
             }
         }
     }
 
-    btnAbout.addEventListener('click', () => toggleNav('about'));
-    btnProjects.addEventListener('click', () => toggleNav('projects'));
+    btnAbout.addEventListener('click', () => toggleMenu('about'));
+    btnProjects.addEventListener('click', () => toggleMenu('projects'));
 
-    // Funzione Scroll ai progetti
-    const rows = document.querySelectorAll(".row");
+    // Click sulle righe dei progetti
+    const rows = document.querySelectorAll('.row');
     rows.forEach(row => {
-        row.addEventListener("click", function() {
-            const targetId = this.getAttribute("data-target");
-            const targetImage = document.getElementById(targetId);
+        row.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            const targetImg = document.getElementById(targetId);
 
-            if (targetImage) {
+            if (targetImg) {
                 if (window.innerWidth <= 768) {
-                    textSection.classList.remove('mobile-open');
+                    textSection.classList.remove('is-open');
                 }
-                targetImage.scrollIntoView({ behavior: 'smooth' });
+                targetImg.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
