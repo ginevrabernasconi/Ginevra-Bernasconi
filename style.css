@@ -110,12 +110,56 @@ a:hover {
 
 
 
-    @media (max-width: 768px) {
-        .container {
-            display: flex;
-            flex-direction: column; /* Organizza gli elementi in colonna */
-            height: 100%;
-        }
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        overflow: hidden; /* Evita scroll doppi */
+    }
+
+    .main-header {
+        width: 100%;
+        padding: 10px;
+        background: white;
+        z-index: 1000;
+        box-sizing: border-box;
+        border-bottom: 1px solid black;
+    }
+
+    .content-wrapper {
+        display: flex;
+        flex-direction: column;
+        height: calc(100% - 50px); /* Sottrae l'altezza dell'header */
+        position: relative;
+    }
+
+    /* Nascondiamo la sezione testo (progetti) di default su mobile */
+    .text-section {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 500;
+        background: white;
+        display: none; /* Nasconde la lista progetti */
+        padding: 15px;
+    }
+
+    /* Classe per mostrare la tendina quando clicchi */
+    .text-section.active {
+        display: block;
+    }
+
+    .image-section {
+        width: 100%;
+        height: 100%;
+        flex: none;
+        order: 2; /* Assicura che sia sotto l'header ma visibile subito */
+    }
+
+    .column-left-2 {
+        width: 40%;
+    }
 
         header.row-1, .row {
             display: flex;
