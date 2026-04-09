@@ -194,12 +194,6 @@ a:hover {
     p {
         font-size: 13px;
         line-height: 1.15;
-        margin: 0;
-    }
-
-    /* ROW SPACING IDENTICO */
-    .row {
-        padding: 2px 0;
     }
 
     /* COLONNE IDENTICHE AL DESKTOP */
