@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const columns = document.querySelectorAll(".row");
     const aboutSection = document.getElementById("about-section");
+    
 
     /* CLICK SU PROGETTI → SCROLL */
     textLines.forEach(line => {
@@ -86,4 +87,9 @@ aboutButton.addEventListener("click", function() {
         }
     }
 })
+
+document.querySelectorAll("video").forEach(video => {
+    video.play().catch(() => {});
+});
+
 })

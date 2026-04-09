@@ -202,8 +202,4 @@ a:hover {
     .row .column-left-2 {
     width: 100%;
     }
-
-    video {
-    pointer-events: none; /* disabilita click → niente play */
-    }
 }
