@@ -29,41 +29,61 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    /* PROJECTS BUTTON */
-    if (projectsButton) {
-        projectsButton.addEventListener("click", function() {
-            textSection.classList.add("active");
+let currentState = null; 
+// "projects" | "about" | null
 
-            // mostra lista progetti
-            columns.forEach(col => col.classList.remove("hidden"));
-            aboutSection.style.display = "none";
-        });
-    }
+/* PROJECTS */
+if (projectsButton) {
+    projectsButton.addEventListener("click", function() {
 
-    /* ABOUT BUTTON */
-    aboutButton.addEventListener("click", function() {
-
-        const isMobile = window.innerWidth <= 768;
-
-        if (isMobile) {
-            textSection.classList.add("active");
-
-            // mostra about
-            columns.forEach(col => col.classList.add("hidden"));
-            aboutSection.style.display = "block";
-
-        } else {
-            // desktop (come prima)
-            const columnsHidden = columns[0].classList.contains("hidden");
-
-            if (columnsHidden) {
-                columns.forEach(column => column.classList.remove("hidden"));
-                aboutSection.style.display = "none";
-            } else {
-                columns.forEach(column => column.classList.add("hidden"));
-                aboutSection.style.display = "block";
-            }
+        if (currentState === "projects") {
+            // CHIUDI
+            textSection.classList.remove("active");
+            currentState = null;
+            return;
         }
-    });
 
-});
+        // APRI PROJECTS
+        textSection.classList.add("active");
+        columns.forEach(col => col.classList.remove("hidden"));
+        aboutSection.style.display = "none";
+
+        currentState = "projects";
+    });
+}
+
+/* ABOUT */
+aboutButton.addEventListener("click", function() {
+
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+
+        if (currentState === "about") {
+            // CHIUDI
+            textSection.classList.remove("active");
+            currentState = null;
+            return;
+        }
+
+        // APRI ABOUT
+        textSection.classList.add("active");
+        columns.forEach(col => col.classList.add("hidden"));
+        aboutSection.style.display = "block";
+
+        currentState = "about";
+
+    } else {
+        // DESKTOP (come prima)
+        const columnsHidden = columns[0].classList.contains("hidden");
+
+        if (columnsHidden) {
+            columns.forEach(column => column.classList.remove("hidden"));
+            aboutSection.style.display = "none";
+        } else {
+            columns.forEach(column => column.classList.add("hidden"));
+            aboutSection.style.display = "block";
+        }
+    }
+})
+})

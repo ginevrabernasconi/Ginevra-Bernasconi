@@ -134,11 +134,11 @@ a:hover {
         width: 100%;
         background: white;
         z-index: 10;
-        padding: 4px 6px;
-
+        padding: 5px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 4px 3px;
     }
 
     .column-left,
@@ -182,8 +182,8 @@ a:hover {
         height: 100vh;
         background: white;
         transition: 0.4s ease;
-        margin: 3px;
-        padding-top: 30px;
+        margin: 0px;
+        padding: 5px;
     }
 
     .text-section.active {
