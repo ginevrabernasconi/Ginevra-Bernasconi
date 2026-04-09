@@ -69,6 +69,9 @@ body, html, p {
 .column-right{
     width: 30%;
     text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
 }
 
 .image-section {
@@ -84,14 +87,17 @@ body, html, p {
     display: flex;
 }
 
+/* ABOUT */
 .about-section {
     display: none;
 }
 
+/* HIDDEN */
 .hidden {
     display: none;
 }
 
+/* LINKS */
 a {
     color: black;
     text-decoration: none;
@@ -101,8 +107,13 @@ a:hover {
     text-decoration: underline;
 }
 
+/* PROJECT BUTTON (hidden desktop) */
+.mobile-only {
+    display: none;
+}
+
 /* ========================= */
-/* 📱 MOBILE VERSION */
+/* 📱 MOBILE */
 /* ========================= */
 
 @media (max-width: 768px) {
@@ -115,13 +126,7 @@ a:hover {
         flex-direction: column;
     }
 
-    /* IMMAGINI = MAIN VIEW */
-    .image-section {
-        width: 100%;
-        height: 100vh;
-        overflow-y: scroll;
-    }
-
+    /* HEADER */
     .row-1 {
         position: fixed;
         top: 0;
@@ -129,9 +134,46 @@ a:hover {
         width: 100%;
         background: white;
         z-index: 10;
+        padding: 4px 6px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    /* TEXT SECTION = MENU OVERLAY */
+    .column-left,
+    .column-left-2,
+    .column-right {
+        width: auto;
+    }
+
+    .column-right {
+        display: flex;
+        gap: 10px;
+    }
+
+    /* SHOW PROJECTS BUTTON */
+    .mobile-only {
+        display: block;
+        cursor: pointer;
+    }
+
+    .about-button {
+        cursor: pointer;
+    }
+
+    .text-line-1 {
+        margin-bottom: 0; /* importante per allineamento orizzontale */
+    }
+
+    /* IMAGES FULLSCREEN */
+    .image-section {
+        width: 100%;
+        height: 100vh;
+        overflow-y: scroll;
+    }
+
+    /* MENU OVERLAY */
     .text-section {
         position: fixed;
         top: 0;
@@ -139,44 +181,37 @@ a:hover {
         width: 100%;
         height: 100vh;
         background: white;
-        margin: 2px;
-        padding-top: 20px;
+        transition: 0.4s ease;
+        margin: 0;
+        padding-top: 30px;
     }
 
     .text-section.active {
         left: 0;
     }
 
-    /* ABOUT */
-    .about-section {
-        padding: 10px;
-    }
-
-    /* ROW ADATTATE */
-    .row {
-        padding: 2px;
-    }
-
-    .column-left {
-        width: 30%;
-    }
-
-    .column-left-2 {
-        width: 70%;
-    }
-
-    .column-right {
-        display: none;
-    }
-
+    /* TYPOGRAPHY IDENTICA */
     p {
         font-size: 13px;
-        margin:0;
+        line-height: 1.15;
+        margin: 0;
     }
 
+    /* ROW SPACING IDENTICO */
+    .row {
+        padding: 2px 0;
+    }
 
-    .mobile-only {
-        display: block;
-        cursor: pointer;
+    /* COLONNE IDENTICHE AL DESKTOP */
+    .column-left{
+        width: 20%;
+    }
+
+    .column-left-2{
+        width: 50%;
+    }
+
+    .column-right{
+        width: 30%;
     }
 }
