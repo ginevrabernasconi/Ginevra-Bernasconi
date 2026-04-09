@@ -177,4 +177,18 @@ a:hover {
         font-size: 13px;
         margin: 2px;
     }
+
+
+    .mobile-only {
+        display: block;
+        cursor: pointer;
+    }
+
+    .projects-button {
+        font-size: 13px;
+    }
+
+    .about-button {
+        cursor: pointer;
+    }
 }
