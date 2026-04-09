@@ -138,6 +138,7 @@ a:hover {
         justify-content: space-between;
         align-items: center;
         padding: 3px;
+        box-sizing: border-box;
     }
 
     .column-left,
