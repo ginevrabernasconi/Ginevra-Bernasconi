@@ -57,12 +57,12 @@ body, html, p {
 }
 
 .column-left{
-    width: 20%;
+    width: 30%;
     text-align: left;
 }
 
 .column-left-2{
-    width: 50%;
+    width: 70%;
     text-align: left;
 }
 
@@ -141,17 +141,6 @@ a:hover {
         box-sizing: border-box;
     }
 
-    .column-left,
-    .column-left-2,
-    .column-right {
-        width: auto;
-    }
-
-    .column-right {
-        display: flex;
-        gap: 10px;
-    }
-
     /* SHOW PROJECTS BUTTON */
     .mobile-only {
         display: block;
@@ -197,18 +186,6 @@ a:hover {
     }
 
     /* COLONNE IDENTICHE AL DESKTOP */
-    .column-left{
-        width: 20%;
-    }
-
-    .column-left-2{
-        width: 60%;
-    }
-
-    .column-right{
-        width: 30%;
-    }
-
     .row .column-right {
     display: none;
     }
@@ -218,6 +195,6 @@ a:hover {
     }
 
     .row .column-left-2 {
-    width: 70%;
+    width: 100%;
     }
 }
