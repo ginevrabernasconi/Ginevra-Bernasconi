@@ -204,6 +204,9 @@ a:hover {
     }
 
     .column-left-2 {
+        width: 100%;
+    }
+    .column-left {
         width: 41.5%;
     }
 
