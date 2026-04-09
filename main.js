@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
+
     const textLines = document.querySelectorAll(".text-line");
+    const textSection = document.querySelector(".text-section");
 
     textLines.forEach(line => {
         line.addEventListener("click", function() {
@@ -8,37 +10,41 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (targetImage) {
                 const imageSection = document.getElementById("image-section");
+
                 imageSection.scrollTo({
                     top: targetImage.offsetTop - imageSection.offsetTop,
                     behavior: 'smooth'
                 });
+
+                // 👉 chiudi menu su mobile dopo click
+                textSection.classList.remove("active");
             }
         });
     });
-});
 
-
-document.addEventListener("DOMContentLoaded", function() {
     const aboutButton = document.querySelector(".about-button");
     const columns = document.querySelectorAll(".row");
     const aboutSection = document.getElementById("about-section");
 
     aboutButton.addEventListener("click", function() {
-        // Verifica se le colonne sono attualmente nascoste
-        const columnsHidden = columns[0].classList.contains("hidden");
 
-        if (columnsHidden) {
-            // Se le colonne sono nascoste, mostrale e nascondi la sezione "about"
-            columns.forEach(column => {
-                column.classList.remove("hidden");
-            });
-            aboutSection.style.display = "none";
+        const isMobile = window.innerWidth <= 768;
+
+        if (isMobile) {
+            // 👉 su mobile: apre menu
+            textSection.classList.toggle("active");
         } else {
-            // Se le colonne sono visibili, nascondile e mostra la sezione "about"
-            columns.forEach(column => {
-                column.classList.add("hidden");
-            });
-            aboutSection.style.display = "block";
+            // 👉 desktop: comportamento originale
+            const columnsHidden = columns[0].classList.contains("hidden");
+
+            if (columnsHidden) {
+                columns.forEach(column => column.classList.remove("hidden"));
+                aboutSection.style.display = "none";
+            } else {
+                columns.forEach(column => column.classList.add("hidden"));
+                aboutSection.style.display = "block";
+            }
         }
     });
+
 });
