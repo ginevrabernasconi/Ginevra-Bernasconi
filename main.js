@@ -88,8 +88,20 @@ aboutButton.addEventListener("click", function() {
     }
 })
 
-document.querySelectorAll("video").forEach(video => {
-    video.play().catch(() => {});
-});
+document.addEventListener('DOMContentLoaded', function() {
+    var video = document.querySelector('video');
+    
+    // Prova a farlo partire forzatamente
+    var playPromise = video.play();
 
+    if (playPromise !== undefined) {
+        playPromise.then(_ => {
+            // Autoplay avviato con successo!
+        }).catch(error => {
+            // L'autoplay è stato bloccato (es. risparmio energetico)
+            // Qui potresti mostrare un tasto "Play" personalizzato
+            console.log("Autoplay bloccato dal browser");
+        });
+    }
+});
 })
